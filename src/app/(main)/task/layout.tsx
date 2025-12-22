@@ -1,6 +1,10 @@
 import { Fragment } from 'react/jsx-runtime';
 
-export default function TaskLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+type Props = Readonly<{
+  children: React.ReactNode;
+}>;
+
+export default function TaskLayout({ children }: Props) {
   return (
     <Fragment>
       <div className="bg-blue-300 p-4">
