@@ -50,6 +50,14 @@ export default function RootLayout({ children }: Props) {
               <Link href="/dashboard">dashboard</Link>
             </li>
           </ul>
+          <ul className="flex justify-start items-center gap-3">
+            <li className="hover:text-gray-500 font-semibold transition-all duration-300">
+              <Link href="/sc">server component</Link>
+            </li>
+            <li className="hover:text-gray-500 font-semibold transition-all duration-300">
+              <Link href="/cc">client component</Link>
+            </li>
+          </ul>
         </header>
         {children}
       </body>
