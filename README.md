@@ -9,6 +9,16 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
 
+## ブランチ
+
+### 1. study
+
+<https://github.com/etranger2268/udemy-nextjs-fullstack/tree/study>
+
+### 2. production
+
+<https://github.com/etranger2268/udemy-nextjs-fullstack/tree/production>
+
 ## 開発
 
 ### 1. 依存関係のインストール
