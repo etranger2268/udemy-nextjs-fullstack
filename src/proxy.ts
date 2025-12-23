@@ -6,5 +6,5 @@ export const proxy = (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/', '/task'],
+  matcher: ['/', '/task/edit'],
 };

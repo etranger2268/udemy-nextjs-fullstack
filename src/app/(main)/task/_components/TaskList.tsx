@@ -1,8 +1,10 @@
 import type { Task } from '@/app/api/tasks/route';
 
 const getTasks = async () => {
+  // キャッシュを利用する場合、fetch関数のキャッシュオプションに'force-cache'を追加する
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/tasks`, {
     method: 'GET',
+    // cache: 'force-cache',
   });
 
   if (!res.ok) throw new Error('Failed to fetch tasks');
