@@ -57,6 +57,9 @@ export default function RootLayout({ children }: Props) {
             <li className="hover:text-gray-500 font-semibold transition-all duration-300">
               <Link href="/cc">client component</Link>
             </li>
+            <li className="hover:text-gray-500 font-semibold transition-all duration-300">
+              <Link href="/api/tasks">route handlers</Link>
+            </li>
           </ul>
         </header>
         {children}
