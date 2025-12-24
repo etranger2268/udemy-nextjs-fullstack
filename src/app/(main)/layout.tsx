@@ -1,4 +1,4 @@
-import SideMenu from "./_components/SideMenu";
+import SideMenu from '@/app/(main)/_components/Side/SideMenu';
 
 type Props = Readonly<{
   children: React.ReactNode;

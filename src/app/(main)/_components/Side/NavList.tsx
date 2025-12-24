@@ -1,5 +1,5 @@
 import { FaRegCheckSquare, FaRegClock, FaTasks } from 'react-icons/fa';
-import NavItem from './NavItem';
+import NavItem from '@/app/(main)/_components/Side/NavItem';
 
 type NavItemType = {
   id: number;
