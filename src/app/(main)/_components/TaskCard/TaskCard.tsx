@@ -1,3 +1,6 @@
+import TaskDeleteButton from '@/app/(main)/_components/TaskCard/TaskDeleteButton/TaskDeleteButton';
+import TaskEditButton from '@/app/(main)/_components/TaskCard/TaskEditButton/TaskEditButton';
+
 export default function TaskCard() {
   const bool = true;
   return (
@@ -18,8 +21,8 @@ export default function TaskCard() {
               {bool ? 'Completed' : 'Incomplete'}
             </span>
             <div className="flex gap-4">
-              <button type="button">編集</button>
-              <button type="button">削除</button>
+              <TaskEditButton id="1" />
+              <TaskDeleteButton id="1" />
             </div>
           </div>
         </div>

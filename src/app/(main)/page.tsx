@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { MdAddTask } from 'react-icons/md';
-import TaskCard from '@/app/(main)/_components/TaskCard';
+import TaskCard from '@/app/(main)/_components/TaskCard/TaskCard';
 
 export default function Home() {
   return (

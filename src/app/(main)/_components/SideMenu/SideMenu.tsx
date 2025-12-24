@@ -1,4 +1,4 @@
-import NavList from "@/app/(main)/_components/Side/NavList";
+import NavList from '@/app/(main)/_components/SideMenu/NavList/NavList';
 
 export default function SideMenu() {
   return (
