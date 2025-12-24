@@ -8,6 +8,7 @@
 - [React](https://ja.react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 ## ブランチ
 
