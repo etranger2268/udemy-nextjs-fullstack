@@ -9,6 +9,7 @@ export type FormState = {
 };
 
 export const createTask = async (state: FormState, formData: FormData) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const newTask: Task = {
     title: formData.get('title') as string,
     description: formData.get('description') as string,
