@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 export const connectDb = async () => {
   try {
-    await mongoose.connect(process.env.DATABASE_URL || '');
-  } catch (e) {
-    console.log(`DB接続失敗：${e}`);
+    await mongoose.connect(process.env.DB_URI || '');
+  } catch (error) {
+    console.error(`DB接続失敗：${error}`);
     throw new Error();
   }
 };
