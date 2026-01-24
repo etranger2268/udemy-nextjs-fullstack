@@ -1,4 +1,4 @@
-import type { Document } from 'mongoose';
+import type { Document, Model } from 'mongoose';
 import mongoose from 'mongoose';
 
 export interface Task {
@@ -34,4 +34,5 @@ const taskSchema = new mongoose.Schema<TaskDocument>(
   { timestamps: true },
 );
 
-export const TaskModel = mongoose.models.Task || mongoose.model('Task', taskSchema);
+export const TaskModel: Model<TaskDocument> =
+  mongoose.models.Task || mongoose.model<TaskDocument>('Task', taskSchema);
