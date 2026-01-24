@@ -51,5 +51,21 @@ export const updateTask = async (id: string, state: FormState, formData: FormDat
     };
   }
 
-  redirect('/')
+  redirect('/');
+};
+
+export const deleteTask = async (id: string, state: FormState) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  try {
+    await connectDb();
+    await TaskModel.deleteOne({ _id: id });
+  } catch (e) {
+    console.error('Delete Task ERROR:', e);
+    return {
+      ...state,
+      error: 'タスクの削除に失敗しました',
+    };
+  }
+
+  redirect('/');
 };
