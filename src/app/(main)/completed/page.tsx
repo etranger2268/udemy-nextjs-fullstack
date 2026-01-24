@@ -29,6 +29,11 @@ export default function CompletedTask() {
 
 async function CompletedTaskContent() {
   const completedTasks = await getCompletedTasks();
+
+  if (completedTasks.length === 0) {
+    return <p>完了済みタスクは存在しません</p>;
+  }
+
   return (
     <Fragment>
       {completedTasks.map((task) => (
