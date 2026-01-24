@@ -12,7 +12,7 @@ const getTask = async (id: string): Promise<TaskDocument> => {
     throw new Error();
   }
   const data = await res.json();
-  return data;
+  return data.task;
 };
 
 export default function EditTaskPage({ params }: Props) {
@@ -29,6 +29,5 @@ export default function EditTaskPage({ params }: Props) {
 async function EditTaskPageContent({ params }: Props) {
   const { id } = await params;
   const task = await getTask(id);
-  console.log(task);
-  return <EditTaskForm />;
+  return <EditTaskForm task={task} />;
 }
