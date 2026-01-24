@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Fragment, Suspense } from 'react';
 import { MdAddTask } from 'react-icons/md';
 import TaskCard from '@/app/(main)/_components/TaskCard/TaskCard';
 import type { TaskDocument } from '@/models/task';
@@ -13,7 +14,6 @@ const getALllTasks = async (): Promise<TaskDocument[]> => {
 };
 
 export default async function Home() {
-  await getALllTasks()
   return (
     <div className="text-gray-800 p-8 h-full overflow-y-auto pb-24">
       <header className="flex justify-between items-center">
@@ -27,8 +27,21 @@ export default async function Home() {
         </Link>
       </header>
       <div className="mt-8 flex flex-wrap gap-4">
-        <TaskCard />
+        <Suspense fallback={<p>Loading...</p>}>
+          <HomePageContent />
+        </Suspense>
       </div>
     </div>
+  );
+}
+
+async function HomePageContent() {
+  const allTasks = await getALllTasks();
+  return (
+    <Fragment>
+      {allTasks.map((task) => (
+        <TaskCard key={String(task._id)} task={task} />
+      ))}
+    </Fragment>
   );
 }
