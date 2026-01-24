@@ -1,6 +1,7 @@
 'use client';
 
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useActionState, useState } from 'react';
+import { updateTask } from '@/actions/task';
 import type { TaskDocument } from '@/models/task';
 
 type EditTaskFormProps = {
@@ -8,15 +9,19 @@ type EditTaskFormProps = {
 };
 
 export default function EditTaskForm({ task }: EditTaskFormProps) {
-  console.log(task);
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [dueDate, setDueDate] = useState(task.dueDate);
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
 
+  const initialState = { error: '' };
+  const updateTaskWithId = updateTask.bind(null, String(task._id));
+
+  const [state, formAction, isPending] = useActionState(updateTaskWithId, initialState);
+
   return (
     <div className="mt-10 mx-auto w-full max-w-sm">
-      <form action="">
+      <form action={formAction}>
         <div>
           <label htmlFor="title" className="block text-sm font-medium">
             タイトル
@@ -76,10 +81,12 @@ export default function EditTaskForm({ task }: EditTaskFormProps) {
         </div>
         <button
           type="submit"
-          className="bg-gray-800 text-white text-sm ont-semibold shadow-sm w-full mt-8 py-2 rounded-md transition-all duration-300 hover:bg-gray-700"
+          disabled={isPending}
+          className="bg-gray-800 text-white text-sm ont-semibold shadow-sm w-full mt-8 py-2 rounded-md transition-all duration-300 hover:bg-gray-700 disabled:bg-gray-400"
         >
           Edit
         </button>
+        {state.error && <p className="mt-2 text-red-500 text-sm">{state.error}</p>}
       </form>
     </div>
   );
