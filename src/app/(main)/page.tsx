@@ -1,8 +1,19 @@
 import Link from 'next/link';
 import { MdAddTask } from 'react-icons/md';
 import TaskCard from '@/app/(main)/_components/TaskCard/TaskCard';
+import type { TaskDocument } from '@/models/task';
 
-export default function Home() {
+const getALllTasks = async (): Promise<TaskDocument[]> => {
+  const res = await fetch(`${process.env.API_URL}/tasks`);
+  if (!res.ok) {
+    throw new Error();
+  }
+  const data = await res.json();
+  return data.tasks;
+};
+
+export default async function Home() {
+  await getALllTasks()
   return (
     <div className="text-gray-800 p-8 h-full overflow-y-auto pb-24">
       <header className="flex justify-between items-center">
