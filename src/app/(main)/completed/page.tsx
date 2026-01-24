@@ -12,7 +12,7 @@ const getCompletedTasks = async (): Promise<TaskDocument[]> => {
   return data.tasks;
 };
 
-export default function CompletedTask() {
+export default async function CompletedTask() {
   return (
     <div className="text-gray-800 p-8 h-full overflow-y-auto pb-24">
       <header className="flex j">
